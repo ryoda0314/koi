@@ -1,0 +1,10 @@
+.wrap {
+  position: fixed; left: 0; right: 0; bottom: calc(72px + var(--nav-bottom)); z-index: 30;
+  display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 0 16px; pointer-events: none;
+}
+.toast {
+  max-width: 480px; padding: 10px 16px; border-radius: 10px; background: var(--ink); color: var(--paper);
+  font-size: 14px; line-height: 1.5; animation: in 0.2s ease-out both;
+}
+@keyframes in { from { transform: translateY(8px); opacity: 0; } }
+@media (min-width: 720px) { .wrap { bottom: 28px; } }

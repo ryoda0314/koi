@@ -1,0 +1,3 @@
+.form { display: flex; flex-direction: column; gap: 18px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.buttons { display: flex; flex-direction: column; gap: 10px; }

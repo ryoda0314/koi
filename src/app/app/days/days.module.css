@@ -1,0 +1,50 @@
+.calendar { padding: 8px 0 18px; border-bottom: 1px solid var(--line); }
+.month { display: flex; align-items: center; gap: 2px; padding: 8px 0 6px; }
+.monthTitle { margin: 0; min-width: 7.2em; text-align: center; font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.navButton {
+  width: var(--tap); height: var(--tap); border: 0; border-radius: 50%; background: none; color: var(--ink);
+  display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.navButton:hover { background: var(--surface); }
+.thisMonth { margin-left: auto; }
+.brush { display: flex; flex-direction: column; gap: 6px; padding: 4px 0 10px; }
+
+.grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.wk { padding: 6px 0; text-align: center; font-size: 12px; color: var(--muted); }
+.wkEnd { color: var(--ink-2); font-weight: 600; }
+
+.cell {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 3px;
+  min-height: 70px; padding: 6px 0 8px; border: 0; border-top: 1px solid var(--line);
+  background: none; color: var(--ink); cursor: pointer; font: inherit;
+}
+.num {
+  display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%;
+  border: 1.5px solid transparent; font-size: 15px; font-variant-numeric: tabular-nums;
+}
+.cell:hover .num { background: var(--surface); }
+.today .num { border-color: var(--ink); }
+.both .num, .both:hover .num { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+.out { color: var(--faint); }
+.out .num { opacity: 0.6; }
+.past { color: var(--faint); }
+.past .num { opacity: 0.7; }
+.paintable { cursor: copy; }
+.paintable:active .num { transform: scale(0.92); }
+
+.marks { display: flex; gap: 5px; min-height: 13px; font-size: 11.5px; line-height: 1.1; }
+.mine { color: var(--ink-2); font-weight: 600; }
+.theirs { color: var(--partner); font-weight: 600; }
+.no { color: var(--faint); }
+.past .mine, .past .theirs { color: var(--faint); font-weight: 400; }
+.planBar { width: 16px; height: 3px; border-radius: 2px; background: var(--ink); margin-top: 1px; }
+
+.legend { margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--muted); line-height: 1.7; }
+.legendBoth { display: inline-flex; align-items: center; gap: 6px; }
+.swatch { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+
+.freeMain { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; font: inherit; color: var(--ink); }
+.waitChip { gap: 8px; }
+
+.person { display: flex; flex-direction: column; gap: 10px; }
+.theirLine { margin: 0; font-size: 16px; }

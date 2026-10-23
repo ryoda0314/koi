@@ -1,0 +1,122 @@
+/* ふたりごよみ: the paper, ink and one accent of ことのは and its sisters. The accent marks the days the two can meet;
+   the partner's own marks are in the sisters' violet. No gradients or shadows inside the app; hairlines separate. */
+:root {
+  --paper: #fcfbf8;
+  --surface: #f1f4f8;
+  --ink: #172033;
+  --ink-2: #3b4558;
+  --muted: #5c6578;
+  --faint: #8c94a5;
+  --line: #e4e7ec;
+  --line-2: #d4d9e1;
+  --danger: #b42318;
+  --danger-tint: #fdf0ee;
+
+  --accent: #0a64f0;
+  --tint: #e6f0ff;
+  /* The other one of the two. */
+  --partner: #6a4fe0;
+  --partner-tint: #efebff;
+
+  --radius: 12px;
+  --tap: 44px;
+  /* Room under the bottom bar: the home indicator's inset, less what its own margin already leaves clear. */
+  --nav-bottom: max(8px, env(safe-area-inset-bottom, 0px) - 12px);
+
+  --font-ui: var(--font-plex), var(--font-plex-jp), var(--font-plex-kr), "Hiragino Sans", "Yu Gothic", sans-serif;
+  --font-mincho: var(--font-shippori), "Hiragino Mincho ProN", "Yu Mincho", serif;
+
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+body {
+  padding-top: env(safe-area-inset-top, 0px);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  /* Japanese wraps between phrases, and a paragraph does not end on a lone word. */
+  word-break: auto-phrase;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+/* A solid strip behind the phone's status bar (zero tall where there is none). */
+.status-fill {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 15;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--paper);
+  pointer-events: none;
+}
+
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+h1, h2, h3 { text-wrap: balance; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* Shared controls */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 52px; padding: 0 24px; border-radius: var(--radius);
+  border: 1px solid var(--accent); background: var(--accent); color: #fff;
+  font-size: 16px; font-weight: 600; text-decoration: none; cursor: pointer;
+}
+.btn:disabled { opacity: 0.55; cursor: default; }
+.btn-small { min-height: 40px; padding: 0 16px; font-size: 14px; border-radius: 10px; }
+.btn-quiet {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 0 18px; border-radius: var(--radius);
+  border: 1px solid var(--line-2); background: var(--paper); color: var(--ink);
+  font-size: 15px; font-weight: 500; text-decoration: none; cursor: pointer;
+}
+.btn-quiet.btn-small { min-height: 40px; padding: 0 14px; font-size: 14px; border-radius: 10px; }
+.btn-quiet:disabled { color: var(--faint); cursor: default; }
+.btn-quiet[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--tint); }
+.btn-danger { border-color: var(--danger); background: var(--danger); color: #fff; }
+.link-button {
+  border: 0; background: none; padding: 0; color: var(--accent); font-size: 14px; cursor: pointer;
+  text-decoration: underline; text-underline-offset: 0.25em;
+}
+.link-danger { border: 0; background: none; padding: 0; color: var(--danger); font-size: 14px; cursor: pointer; }
+
+/* Pills: filters, kinds, the free-time brush. */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 14px; border-radius: 999px;
+  border: 1px solid var(--line-2); background: var(--paper); color: var(--ink); font-size: 13.5px; cursor: pointer;
+  white-space: nowrap;
+}
+.chip[aria-pressed="true"] { border-color: var(--accent); background: var(--tint); color: var(--accent); font-weight: 600; }
+.chip .count { color: var(--muted); font-size: 12px; }
+.chip[aria-pressed="true"] .count { color: var(--accent); }
+
+/* Fields */
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.field > label, .label { font-size: 13px; font-weight: 600; color: var(--muted); margin: 0; }
+.input {
+  width: 100%; min-height: 48px; padding: 10px 14px; border-radius: 10px;
+  border: 1px solid var(--line-2); background: var(--paper); font-size: 16px; color: var(--ink);
+}
+.input:focus { outline: none; border-color: var(--accent); }
+textarea.input { resize: vertical; line-height: 1.7; }
+.hint { margin: 0; font-size: 13px; line-height: 1.7; color: var(--muted); }
+.error { margin: 0; font-size: 14px; color: var(--danger); }
+
+/* The wordmark in mincho. */
+.wordmark-kana { font-family: var(--font-mincho); font-weight: 700; letter-spacing: 0.06em; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

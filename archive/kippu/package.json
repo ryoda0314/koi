@@ -1,0 +1,26 @@
+{
+  "name": "futari-tabi-kippu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ふたり旅きっぷ — ふたりで旅行とデートの計画を同時に書き込めるウェブアプリ（Supabase + GPT-5.2）",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "db:start": "supabase start -x studio,postgres-meta,imgproxy,logflare,vector,mailpit,supavisor",
+    "db:stop": "supabase stop",
+    "ai:serve": "node scripts/sync-shared.mjs && supabase functions serve --env-file supabase/functions/.env",
+    "deploy:db": "supabase db push",
+    "deploy:ai": "node scripts/sync-shared.mjs && supabase functions deploy ai --no-verify-jwt",
+    "vendor": "node scripts/vendor.mjs"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.118.0",
+    "htm": "^3.1.1",
+    "leaflet": "^1.9.4",
+    "qrcode-generator": "^2.0.4",
+    "supabase": "^2.121.0"
+  }
+}

@@ -1,0 +1,51 @@
+/* What every screen in the app shares (after ことのは): a header bar, the page's padding, quiet notes, sections, rows. */
+.page { flex: 1; display: flex; flex-direction: column; padding: 0 16px 24px; }
+.bar {
+  display: flex; align-items: center; gap: 10px; min-height: 60px;
+  padding: 8px 0; border-bottom: 1px solid var(--line);
+}
+.barTitle { flex: 1; min-width: 0; margin: 0; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.4; }
+.barSub { display: block; font-size: 12.5px; font-weight: 400; color: var(--muted); letter-spacing: 0; }
+.barActions { display: flex; gap: 6px; align-items: center; }
+.barButton {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 12px;
+  border: 1px solid var(--line-2); border-radius: 999px; background: var(--paper); font-size: 13px; color: var(--ink);
+  text-decoration: none; cursor: pointer; white-space: nowrap;
+}
+.barButton:hover { border-color: var(--accent); color: var(--accent); }
+.barButton[aria-pressed="true"] { border-color: var(--accent); background: var(--tint); color: var(--accent); font-weight: 600; }
+.iconLink {
+  width: var(--tap); height: var(--tap); margin-left: -10px; display: inline-flex; align-items: center; justify-content: center;
+  color: var(--ink); border-radius: 50%;
+}
+.here { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+.here::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--partner); }
+
+.lead { margin: 16px 0 0; font-size: 14px; line-height: 1.75; color: var(--muted); }
+.note { margin: 0; font-size: 13px; line-height: 1.7; color: var(--muted); }
+.section { display: flex; flex-direction: column; gap: 10px; padding: 20px 0; }
+.section + .section { border-top: 1px solid var(--line); }
+.h2 { margin: 0; font-size: 15px; font-weight: 600; display: flex; align-items: baseline; gap: 8px; }
+.h2 .count { font-size: 12.5px; font-weight: 400; color: var(--muted); }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.skeleton { padding: 40px 0; color: var(--faint); font-size: 14px; }
+.banner { margin: 12px 0 0; padding: 10px 14px; border-radius: 10px; background: var(--surface); font-size: 13.5px; color: var(--ink-2); }
+
+.empty { display: flex; flex-direction: column; gap: 12px; padding: 28px 0 8px; }
+.emptyTitle { margin: 0; font-size: 17px; font-weight: 600; }
+.emptyBody { margin: 0; font-size: 14.5px; line-height: 1.85; color: var(--ink-2); }
+
+.rows { list-style: none; margin: 0; padding: 0; }
+.rows > li { border-top: 1px solid var(--line); }
+.rows > li:last-child { border-bottom: 1px solid var(--line); }
+.row {
+  width: 100%; display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 10px 2px; text-align: left;
+  border: 0; background: none; color: var(--ink); text-decoration: none; cursor: pointer; font: inherit;
+}
+.rowMain { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.rowTitle { font-size: 15px; }
+.rowSub { font-size: 13px; color: var(--muted); }
+.row > svg { color: var(--faint); flex-shrink: 0; }
+.tag { flex-shrink: 0; font-size: 12px; color: var(--muted); padding: 2px 9px; border-radius: 999px; background: var(--surface); white-space: nowrap; }
+.tagAccent { color: var(--accent); background: var(--tint); }
+.tagPartner { color: var(--partner); background: var(--partner-tint); }

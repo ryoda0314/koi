@@ -1,0 +1,27 @@
+.page { max-width: 640px; margin: 0 auto; padding: 40px 20px 64px; display: flex; flex-direction: column; gap: 36px; }
+.header { padding-top: 8px; }
+.hero { display: flex; flex-direction: column; gap: 20px; }
+.lead { margin: 0; font-size: 26px; font-weight: 600; line-height: 1.45; letter-spacing: -0.01em; }
+.body { margin: 0; font-size: 16px; line-height: 1.85; color: var(--ink-2); }
+
+/* The example week: hairlines above and below, as ことのは's example sentence. */
+.figure { margin: 4px 0 8px; padding: 18px 0 14px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px; }
+.week { display: grid; grid-template-columns: 3.6em repeat(7, minmax(0, 1fr)); row-gap: 6px; align-items: center; }
+.who { font-size: 12.5px; font-weight: 600; color: var(--muted); }
+.who.them { color: var(--partner); }
+.day { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.wd { font-size: 11.5px; color: var(--muted); }
+.num {
+  display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%;
+  font-size: 15px; font-variant-numeric: tabular-nums;
+}
+.both { background: var(--accent); color: #fff; font-weight: 600; }
+.mark { text-align: center; font-size: 13px; color: var(--ink-2); min-height: 1.6em; }
+.mark.them { color: var(--partner); }
+.caption { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+
+@media (min-width: 720px) {
+  .page { padding-top: 72px; }
+  .lead { font-size: 32px; }
+}

@@ -1,0 +1,2 @@
+.names { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.you { margin: 0; font-size: 15px; }

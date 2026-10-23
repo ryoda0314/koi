@@ -1,0 +1,10 @@
+.env
+.env*.local
+archive
+.next
+.next-*
+node_modules
+supabase/.temp
+supabase/.branches
+design
+tests

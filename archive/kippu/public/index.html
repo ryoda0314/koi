@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ふたり旅きっぷ</title>
+<meta name="description" content="行きたい場所・旅程・お金・持ち物を、ふたりで同時に書き込める旅のノート。">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#E6EEE9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1411" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="ふたり旅きっぷ">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icons/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=DotGothic16&family=Train+One&display=swap">
+<link rel="stylesheet" href="/css/app.css">
+<link rel="modulepreload" href="/vendor/preact.js">
+<link rel="modulepreload" href="/shared/trip.js">
+<link rel="modulepreload" href="/js/api.js">
+<link rel="modulepreload" href="/config.js">
+<script src="/vendor/supabase.js"></script>
+<script type="module" src="/js/app.js"></script>
+</head>
+<body>
+<div id="app"><p class="boot-msg">きっぷを発券しています…</p></div>
+<div id="hearts" aria-hidden="true"></div>
+<noscript><p class="boot-msg">JavaScript をオンにして開いてください。</p></noscript>
+</body>
+</html>
